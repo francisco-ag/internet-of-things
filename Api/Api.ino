@@ -6,6 +6,10 @@
 //const char* ssid ="INFINITUM06B5";
 //const char* password ="nvDtd7mfvd";
 
+// IMPORTANTE :
+// DESCARGAR LIBERIA
+// https://arduinojson.org/?utm_source=meta&utm_medium=library.properties
+
 const char* ssid ="ALUMNOS TEC";
 const char* password ="";
 
