@@ -1,7 +1,7 @@
-#include <Wifi.h>
+#include <WiFi.h>
 #include <WebServer.h>
 
-const char* ssid = "ALUMNOS_TEC";
+const char* ssid = "ALUMNOS TEC";
 const char* password = "";
 
 //inicializar server en puerto 80
@@ -9,7 +9,7 @@ WebServer server(80);
 const int ledPin = 14;
 
 void handleRoot(){
-  String html = "<h1>Controlar LED</h1>"
+  String html = "<h1>Controlar LED</h1>";
   html += "<p><a href=\"/on\"><button>ON</button></a></p>";                       
   html += "<p><a href=\"/off\"><button>OFF</button></a></p>";                       
   server.send(200,"text/html",html);
@@ -18,13 +18,13 @@ void handleRoot(){
 void handleOn(){
   digitalWrite(ledPin, HIGH);
   server.send(200,"text/html",
-  "LED ENCENDIDO <BR> <a href=\"/\">Volver</a>")
+  "LED ENCENDIDO <BR> <a href=\"/\">Volver</a>");
 }
 
 void handleOff(){
   digitalWrite(ledPin, LOW);
   server.send(200,"text/html",
-  "LED APAGADO <BR> <a href=\"/\">Volver</a>")
+  "LED APAGADO <BR> <a href=\"/\">Volver</a>");
 }
 
 void setup() {
@@ -33,17 +33,17 @@ void setup() {
 
   Serial.begin(115200);
   delay(400);
-  Wifi.begin(ssid, password); 
+  WiFi.begin(ssid, password); 
   
-  Serial.print("Conectando a Wifi ...");
+  Serial.print("Conectando a WiFi ...");
 
-  while(Wifi.status() != WL_CONNECTED){
+  while(WiFi.status() != WL_CONNECTED){
     delay(500);
     Serial.print(".");
   }
   Serial.println("\nConectado");
   Serial.println("IP del Servidor :");
-  Serial.println(Wifi.localIP());
+  Serial.println(WiFi.localIP());
 
   server.on("/",handleRoot);
   server.on("/on",handleOn);
