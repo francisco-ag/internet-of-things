@@ -26,6 +26,7 @@ bool current_weather = true ;
 
 String myJson = "";
 const int ledPin = 14;
+
 int ledState = LOW;  
 
 const char* htmlPage = R"rawliteral(
@@ -117,20 +118,15 @@ void handleWeather(){
       if(!error){
         float temperatura = doc["current_weather"]["temperature"];
         int isDay = doc["current_weather"]["is_day"];
-
-        if(isDay == 0){
-          //Es de noche
+        if(isDay == 0){ //Es de noche
           ledState = HIGH;
           digitalWrite(ledPin,ledState)
         }else{
           ledState = LOW;
           digitalWrite(ledPin,ledState)
         }
-
         String response; 
-
         StaticJsonDocument<2048> out;
-
         out["temperature"] = temperatura;
         out["led"] = ledState;
         out["json"] = doc.as<JsonObject>();
