@@ -120,10 +120,10 @@ void handleWeather(){
         int isDay = doc["current_weather"]["is_day"];
         if(isDay == 0){ //Es de noche
           ledState = HIGH;
-          digitalWrite(ledPin,ledState)
+          digitalWrite(ledPin,ledState);
         }else{
           ledState = LOW;
-          digitalWrite(ledPin,ledState)
+          digitalWrite(ledPin,ledState);
         }
         String response; 
         StaticJsonDocument<2048> out;
