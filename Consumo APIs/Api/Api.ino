@@ -15,8 +15,8 @@
 // DESCARGAR LIBERIA
 // https://arduinojson.org/?utm_source=meta&utm_medium=library.properties
 
-const char* ssid ="ALUMNOS TEC";
-const char* password ="";
+const char* ssid ="INFINITUM06B5";
+const char* password ="nvDtd7mfvd";
 
 WebServer server(80);
 
